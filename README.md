@@ -29,6 +29,14 @@ The goal of Bandit is to move from **Level 0** all the way up by solving a serie
    ```bash
    ssh bandit0@bandit.labs.overthewire.org -p 2220
 
+## 🔐 Level 0 → Level 1
+
+**Goal:**  
+The password for the next level is stored in a file called `readme` located in the home directory.
+
+**Approach:**  
+Log in using the provided SSH credentials and use `cat` to read the file.
+
 ## 🔐 Level 1 → Level 2
 
 **Goal:**  
