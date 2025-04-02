@@ -28,3 +28,37 @@ The goal of Bandit is to move from **Level 0** all the way up by solving a serie
 3. Connect using:
    ```bash
    ssh bandit0@bandit.labs.overthewire.org -p 2220
+
+## 🔐 Level 1 → Level 2
+
+**Goal:**  
+The password for the next level is stored in a file called `-` located in the home directory.
+
+**Approach:**  
+Since `-` is usually interpreted as a command-line option, you need to prevent confusion by using  `./-` after the command to read it correctly.
+
+
+## 🔐 Level 2 → Level 3
+
+**Goal:**  
+The password for the next level is stored in a file called `spaces in this filename` located in the home directory.
+
+**Approach:**  
+Since the filename contains spaces, wrap it in quotes or escape each space using backslashes.
+
+## 🔐 Level 3 → Level 4
+
+**Goal:**  
+The password for the next level is stored in a hidden file in the `inhere` directory.
+
+**Approach:**  
+Hidden files in Linux start with a dot (`.`). Use `ls -a` to view all files, including hidden ones, in the `inhere` directory. Then use `cat` to read the hidden file.
+
+## 🔐 Level 4 → Level 5
+
+**Goal:**  
+The password for the next level is stored in the only human-readable file in the `inhere` directory.
+
+**Approach:**  
+Use the `file` command on each file inside the `inhere` directory to determine its type. Look for the one that says `ASCII text` (which is human-readable), then use `cat` to read its contents.
+
