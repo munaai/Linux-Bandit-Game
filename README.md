@@ -70,3 +70,51 @@ The password for the next level is stored in the only human-readable file in the
 **Approach:**  
 Use the `file` command on each file inside the `inhere` directory to determine its type. Look for the one that says `ASCII text` (which is human-readable), then use `cat` to read its contents.
 
+## 🔐 Level 5 → Level 6
+
+**Goal:**  
+The password for the next level is stored in a file somewhere under the `inhere` directory and has the following properties:  
+- Human-readable  
+- 1033 bytes in size  
+- Not executable
+
+**Approach:**  
+Use the `find` command to search files by size, permissions, and type.
+
+## 🔐 Level 6 → Level 7
+
+**Goal:**  
+The password for the next level is stored somewhere on the server and has the following properties:  
+- Owned by user `bandit7`  
+- Owned by group `bandit6`  
+- Exactly 33 bytes in size
+
+**Approach:**  
+Use the `find` command to search from the root `/` directory for files matching all the criteria.  
+Suppress permission errors with `2>/dev/null`.
+
+## 🔐 Level 7 → Level 8
+
+**Goal:**  
+The password for the next level is stored in the file `data.txt`, next to the word `millionth`.
+
+**Approach:**  
+Use `grep` to search for the line containing the word `millionth`. The password is the second word on that line.
+
+## 🔐 Level 8 → Level 9
+
+**Goal:**  
+The password for the next level is stored in the file `data.txt` and is the only line that occurs **only once**.
+
+**Approach:**  
+Use `sort` to organize the file, then use `uniq -u` to find the unique line that appears only once.
+
+## 🔐 Level 9 → Level 10
+
+**Goal:**  
+The password for the next level is stored in the file `data.txt`, in one of the few **human-readable strings**, **preceded by several `=` characters**.
+
+**Approach:**  
+Use the `strings` command to extract all readable text from the file, then pipe it into `grep` to filter lines that contain a sequence of equal signs.
+
+
